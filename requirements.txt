@@ -1,0 +1,6 @@
+aiohttp
+intake
+matplotlib
+numpy
+pandas
+streamlit
