@@ -167,7 +167,7 @@ with country_container:
 
             # get pledges
             ax.plot([baseline_year, list(data['year'])[-1]],
-                    [target_emissions, target_emissions], '--')
+                    [target_emissions, target_emissions], '--', label=f'{actor_id} target level')
 
             ax.set_ylim([0, ymax])
             ax.set_xlim([1990, 2022])
@@ -204,10 +204,6 @@ with country_container:
         plt.legend(loc='lower right', frameon=False)
 
         st.pyplot(fig)
-
-        st.write(ymax)
-        # just a sanity check
-        st.write('You selected:', options)
 
 
 with subnational_container:
@@ -313,7 +309,7 @@ with subnational_container:
         fig = plt.figure(figsize=(6, 6))
         ax = fig.add_subplot(111)
 
-        difference = subnational_total.values - country_total.values
+        difference = country_total.values - subnational_total.values
         # set the max value, this is kludgy
         ymax = abs(difference).max()
         year_range = [1990, 2022]
@@ -354,7 +350,7 @@ with subnational_container:
 
         # plot difference
         ax.plot(data['year'], difference, linewidth=2,
-                label='subnational_total - country')
+                label='Difference')
 
         ax.set_ylim([-ymax, ymax])
         ax.set_xlim(year_range)
