@@ -115,7 +115,7 @@ with sidebar:
 
     st.markdown("---")
     st.subheader(
-        "Code available on [GitHub](https://github.com/)")
+        "Code available on [GitHub](https://github.com/Open-Earth-Foundation/streamlit-OpenClimate)")
 
 with country_container:
     # load data, it is cached for speed
